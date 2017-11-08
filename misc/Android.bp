@@ -27,6 +27,7 @@ cc_binary {
 
     srcs: [
         "mke2fs.c",
+        "util.c",
         "mk_hugefiles.c",
         "default_profile.c",
         "create_inode.c",
@@ -44,18 +45,6 @@ cc_binary {
     include_dirs: ["external/e2fsprogs/e2fsck"],
 }
 
-cc_library_static {
-    name: "libmke2fs",
-    srcs: [
-        "mke2fs.c",
-        "mk_hugefiles.c",
-        "default_profile.c",
-        "create_inode.c",
-    ],
-    cflags: ["-W", "-Wall", "-Wno-macro-redefined", "-DBUILD_AS_LIB"],
-    include_dirs: ["external/e2fsprogs/lib", "external/e2fsprogs/e2fsck"],
-}
-
 //##########################################################################
 // Build tune2fs
 
@@ -63,6 +52,7 @@ cc_defaults {
     name: "tune2fs-defaults",
     srcs: [
         "tune2fs.c",
+        "util.c",
     ],
     cflags: [
         "-W",

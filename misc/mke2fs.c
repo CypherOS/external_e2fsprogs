@@ -74,11 +74,7 @@ extern int optind;
 extern int isatty(int);
 extern FILE *fpopen(const char *cmd, const char *mode);
 
-#ifndef BUILD_AS_LIB
 const char * program_name = "mke2fs";
-#else
-extern const char *program_name;
-#endif
 static const char * device_name /* = NULL */;
 
 /* Command line options */
@@ -2761,11 +2757,7 @@ try_user:
 	return 0;
 }
 
-#ifndef BUILD_AS_LIB
 int main (int argc, char *argv[])
-#else
-int mke2fs_main(int argc, char *argv[])
-#endif
 {
 	errcode_t	retval = 0;
 	ext2_filsys	fs;
